@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Amni Circle — For Your Organization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+:root{
+  --p:#C0392B;--pm:#E74C3C;--pl:#FDDBD8;--pp:#FFF5F5;
+  --dk:#111111;--mu:#607D8B;--br:#444444;--gold:#C0392B;
+  --gn:#4CAF50;--white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-height:100vh;overflow-x:hidden;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(135deg,#111111 0%,#1a1a1a 40%,#2a0a08 100%);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 48px 60px;text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(192,57,43,0.3) 0%,transparent 65%),
+             radial-gradient(ellipse 40% 40% at 80% 80%,rgba(192,57,43,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* floating orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0.2;}
+.orb1{width:500px;height:500px;background:#C0392B;top:-200px;left:-150px;animation:drift1 18s ease-in-out infinite;}
+.orb2{width:350px;height:350px;background:#7B0000;bottom:-100px;right:-80px;animation:drift2 22s ease-in-out infinite;}
+.orb3{width:250px;height:250px;background:#E74C3C;top:40%;left:60%;animation:drift3 15s ease-in-out infinite;}
+@keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,30px);}}
+@keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,-20px);}}
+@keyframes drift3{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-40px);}}
+
+.hero-eyebrow{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--pm);
+  margin-bottom:20px;opacity:0;animation:fadeUp 0.6s 0.2s ease forwards;
+}
+.hero-title{
+  font-family:'DM Serif Display',serif;font-size:clamp(48px,7vw,88px);
+  font-weight:400;line-height:1.05;margin-bottom:12px;
+  opacity:0;animation:fadeUp 0.7s 0.35s ease forwards;
+}
+.hero-title em{font-style:italic;color:#E74C3C;}
+.hero-subtitle{
+  font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,0.6);
+  font-weight:300;line-height:1.6;max-width:620px;margin:0 auto 16px;
+  opacity:0;animation:fadeUp 0.7s 0.5s ease forwards;
+}
+.hero-tagline{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:clamp(13px,1.5vw,16px);color:rgba(255,255,255,0.55);
+  margin-bottom:44px;letter-spacing:0.3px;
+  opacity:0;animation:fadeUp 0.6s 0.65s ease forwards;
+}
+.hero-ctas{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.7s 0.8s ease forwards;
+  margin-bottom:60px;
+}
+.btn-primary{
+  padding:16px 36px;background:var(--p);color:#fff;
+  border:none;border-radius:12px;font-size:16px;font-weight:700;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  transition:all 0.2s;box-shadow:0 4px 24px rgba(192,57,43,0.35);
+}
+.btn-primary:hover{background:#E74C3C;transform:translateY(-2px);box-shadow:0 8px 32px rgba(192,57,43,0.45);}
+.btn-outline{
+  padding:16px 32px;background:transparent;
+  border:1.5px solid rgba(255,255,255,0.25);color:#fff;
+  border-radius:12px;font-size:16px;font-weight:600;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  transition:all 0.2s;
+}
+.btn-outline:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);}
+
+/* scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  opacity:0;animation:fadeUp 0.6s 1.2s ease forwards;
+}
+.scroll-hint span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+.scroll-dot{width:1.5px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+@keyframes scrollPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── WHAT IS IT ── */
+.section{padding:80px 48px;max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--pm);margin-bottom:14px;}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,48px);line-height:1.15;margin-bottom:16px;color:#fff;}
+.section-title em{font-style:italic;color:#E74C3C;}
+.section-body{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:680px;}
+
+/* ── ORG TYPES ── */
+.orgs-section{padding:0 48px 80px;max-width:1100px;margin:0 auto;}
+.orgs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:40px;}
+.org-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;padding:28px 24px;
+  transition:all 0.25s;position:relative;overflow:hidden;
+}
+.org-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(192,57,43,0.1),transparent);
+  opacity:0;transition:opacity 0.25s;pointer-events:none;border-radius:16px;
+}
+.org-card:hover{border-color:rgba(192,57,43,0.5);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+.org-card:hover::before{opacity:1;}
+.org-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:22px;}
+.org-type{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;opacity:0.6;}
+.org-name{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:10px;line-height:1.2;}
+.org-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.org-examples{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
+.org-tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);}
+
+/* ── FEATURES ── */
+.features-section{
+  background:linear-gradient(180deg,transparent,rgba(192,57,43,0.08),transparent);
+  padding:80px 48px;
+}
+.features-inner{max-width:1100px;margin:0 auto;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:40px;}
+.feat-item{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.06);}
+.feat-icon{width:40px;height:40px;border-radius:10px;background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#E74C3C;}
+.feat-title{font-size:15px;font-weight:700;margin-bottom:4px;color:#fff;}
+.feat-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+
+/* ── PRICING ── */
+.pricing-section{padding:80px 48px;max-width:1100px;margin:0 auto;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.price-card{
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  transition:all 0.2s;
+}
+.price-card:hover{transform:translateY(-3px);border-color:rgba(192,57,43,0.4);}
+.price-card.rec{border-color:var(--p);background:rgba(192,57,43,0.1);box-shadow:0 8px 40px rgba(192,57,43,0.2);}
+.rec-tag{background:var(--p);text-align:center;padding:6px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;}
+.price-hdr{padding:24px 22px 18px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.price-option{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pm);margin-bottom:10px;}
+.price-build{font-size:36px;font-weight:700;color:#fff;line-height:1;}
+.price-build small{font-size:15px;font-weight:400;color:rgba(255,255,255,0.4);}
+.price-mo{font-size:14px;color:rgba(255,255,255,0.5);margin-top:6px;}
+.price-body{padding:20px 22px;}
+.price-feat{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:9px;line-height:1.4;}
+.price-feat i{color:var(--gn);font-size:15px;flex-shrink:0;margin-top:1px;}
+.price-feat i.off{color:rgba(255,255,255,0.15);}
+.price-feat.dim{color:rgba(255,255,255,0.3);}
+.price-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);line-height:1.5;}
+
+/* ── CTA STRIP ── */
+.cta-strip{
+  background:linear-gradient(135deg,#111111,#2a0a08);
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:80px 48px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-strip::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(192,57,43,0.18),transparent);
+  pointer-events:none;
+}
+.cta-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,5vw,56px);line-height:1.15;margin-bottom:14px;}
+.cta-title em{font-style:italic;color:#E74C3C;}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.6;max-width:520px;margin:0 auto 40px;}
+
+/* QR + contact */
+.contact-row{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:48px;}
+.qr-box{
+  background:rgba(255,255,255,0.97);border-radius:16px;padding:16px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.4);
+}
+.qr-box svg{width:140px;height:140px;}
+.qr-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--p);font-family:'DM Sans',sans-serif;}
+.contact-info{text-align:left;}
+.contact-name{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:4px;}
+.contact-studio{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:18px;}
+.contact-link{display:flex;align-items:center;gap:9px;font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:10px;text-decoration:none;transition:color 0.15s;}
+.contact-link:hover{color:var(--p);}
+.contact-link i{font-size:16px;color:var(--pm);}
+
+/* footer */
+.footer{text-align:center;padding:28px 48px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:6px;}
+.footer-logo span{color:#E74C3C;font-style:italic;}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.5px;}
+
+@media(max-width:700px){
+  .hero{padding:60px 24px 50px;}
+  .section,.orgs-section,.pricing-section{padding-left:24px;padding-right:24px;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .features-section{padding:60px 24px;}
+  .cta-strip{padding:60px 24px;}
+  .contact-row{flex-direction:column;align-items:center;}
+  .contact-info{text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <div class="hero-eyebrow">Amni Circle · Community Platform</div>
+  <h1 class="hero-title">Your community.<br><em>One platform.</em></h1>
+  <p class="hero-subtitle">Events, registrations, reminders, timezone support, and participant data — built for any organization that brings people together.</p>
+  <p class="hero-tagline">"Amni" — from Arabic &amp; Swahili for peace, safety &amp; community</p>
+  <div class="hero-ctas">
+    <a href="https://calendly.com/carlisdesign/30min" target="_blank" class="btn-primary">
+      <i class="ti ti-player-play"></i> Start your free trial
+    </a>
+    <a href="mailto:info@carlisdesignstudio.net" class="btn-outline">
+      <i class="ti ti-mail"></i> info@carlisdesignstudio.net
+    </a>
+  </div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:-40px;margin-bottom:60px;letter-spacing:0.3px;">No credit card. No obligation. A guided 30-minute demo built around your organization.</p>
+
+  <div class="scroll-hint">
+    <span>See what's possible</span>
+    <div class="scroll-dot"></div>
+  </div>
+</div>
+
+<!-- ── WHAT IS IT ── -->
+<div style="background:#111111;padding:80px 0 0;">
+  <div class="section">
+    <div class="section-eyebrow">What is Amni Circle?</div>
+    <h2 class="section-title">A complete community<br><em>event platform</em> — your brand,<br>your community, your data.</h2>
+    <p class="section-body">Amni Circle gives your organization a branded home for every event you run — in-person, virtual, or hybrid. Participants register with one click, receive automated multilingual reminders, and you get real-time attendance data. No spreadsheets. No Gmail threads. No manual sorting.</p>
+  </div>
+</div>
+
+<!-- ── ORG TYPES ── -->
+<div style="background:#111111;">
+  <div class="orgs-section">
+    <div class="section-eyebrow">Built for organizations like yours</div>
+    <h2 class="section-title" style="font-family:'DM Serif Display',serif;font-size:clamp(28px,3.5vw,40px);color:#fff;line-height:1.2;margin-bottom:0;">Whatever your mission —<br><em>Amni Circle fits.</em></h2>
+
+    <div class="orgs-grid">
+
+      <div class="org-card">
+        <div class="org-icon" style="background:rgba(76,175,80,0.15);color:#81C784;"><i class="ti ti-heart-handshake"></i></div>
+        <div class="org-type">Nonprofits</div>
+        <div class="org-name">Community Organizations</div>
+        <div class="org-desc">Manage events across multiple chapters, cities, or countries. Track participant engagement for grant reporting. Run workshops, circles, and community gatherings from one URL.</div>
+        <div class="org-examples">
+          <span class="org-tag">Advocacy groups</span>
+          <span class="org-tag">Women's orgs</span>
+          <span class="org-tag">Youth programs</span>
+          <span class="org-tag">Health coalitions</span>
+        </div>
+      </div>
+
+      <div class="org-card">
+        <div class="org-icon" style="background:rgba(192,57,43,0.15);color:#E74C3C;"><i class="ti ti-building-church"></i></div>
+        <div class="org-type">Faith Communities</div>
+        <div class="org-name">Churches &amp; Houses of Worship</div>
+        <div class="org-desc">Replace email chains and paper sign-up sheets. Let congregants register for services, retreats, prayer events, and ministry programs — with automatic reminders in their language.</div>
+        <div class="org-examples">
+          <span class="org-tag">Sunday services</span>
+          <span class="org-tag">Retreats</span>
+          <span class="org-tag">Prayer circles</span>
+          <span class="org-tag">Ministry events</span>
+        </div>
+      </div>
+
+      <div class="org-card">
+        <div class="org-icon" style="background:rgba(21,101,192,0.15);color:#90CAF9;"><i class="ti ti-building-community"></i></div>
+        <div class="org-type">Government &amp; Civic</div>
+        <div class="org-name">Civic &amp; Government Groups</div>
+        <div class="org-desc">Host town halls, voter registration drives, public forums, and community meetings. Multi-timezone support means constituents in any region see the right time automatically.</div>
+        <div class="org-examples">
+          <span class="org-tag">Town halls</span>
+          <span class="org-tag">Voter drives</span>
+          <span class="org-tag">Public forums</span>
+          <span class="org-tag">Advisory boards</span>
+        </div>
+      </div>
+
+      <div class="org-card">
+        <div class="org-icon" style="background:rgba(192,57,43,0.12);color:#E74C3C;"><i class="ti ti-briefcase"></i></div>
+        <div class="org-type">Businesses &amp; Agencies</div>
+        <div class="org-name">Agencies &amp; Consultancies</div>
+        <div class="org-desc">Run client workshops, training sessions, and community engagement programs. White-label your instance with your own branding — your clients see your logo, not ours.</div>
+        <div class="org-examples">
+          <span class="org-tag">Client workshops</span>
+          <span class="org-tag">Training series</span>
+          <span class="org-tag">Community programs</span>
+          <span class="org-tag">DEI initiatives</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURES ── -->
+<div class="features-section">
+  <div class="features-inner">
+    <div class="section-eyebrow">What every plan includes</div>
+    <h2 class="section-title" style="margin-bottom:0;">Everything you need.<br><em>Nothing you don't.</em></h2>
+
+    <div class="features-grid">
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-palette"></i></div>
+        <div><div class="feat-title">Your brand, your colors</div><div class="feat-desc">Your logo, your accent color, your org name on every card and email. Participants see your identity, not ours.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-mail-check"></i></div>
+        <div><div class="feat-title">Magic link login</div><div class="feat-desc">No passwords. Participants click a link in their email and they're in. Works on any device, any browser.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-world"></i></div>
+        <div><div class="feat-title">13-zone timezone support</div><div class="feat-desc">Every virtual event automatically shows the correct local time for participants in the US, Africa, Europe, Asia, and more.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-map-pin"></i></div>
+        <div><div class="feat-title">Smart address (14 countries)</div><div class="feat-desc">Your submission form adapts by country — ZIP codes, Parishes, Postal codes, Digital addresses. No wrong fields.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-language"></i></div>
+        <div><div class="feat-title">Multilingual reminders</div><div class="feat-desc">Participants choose English, Spanish, French, or Hindi. Reminders are sent in their preferred language automatically.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-send"></i></div>
+        <div><div class="feat-title">Email marketing integration</div><div class="feat-desc">Compatible with Constant Contact and Mailchimp — new registrants sync automatically to your list. Weekly digest in Early Season or In-Season mode, two clicks to send. HubSpot available as a custom feature.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-shield-check"></i></div>
+        <div><div class="feat-title">Admin portal + review</div><div class="feat-desc">PIN-protected staff portal. Review submitted sessions — see the flyer and logo before you approve. One click to go live.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-chart-bar"></i></div>
+        <div><div class="feat-title">Attendance data + CSV export</div><div class="feat-desc">Know who attended, how many events, which activity types. Download everything for grant reports or board presentations.</div></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="ti ti-mail-forward"></i></div>
+        <div><div class="feat-title">Post-session email</div><div class="feat-desc">After every event, the facilitator sends a personal thank-you to all participants — with upcoming events built right in. 45–65% open rate.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FREE TRIAL STRIP ── -->
+<div style="background:#111111;padding:0 48px 64px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="border:1px solid rgba(192,57,43,0.3);border-radius:16px;padding:36px 40px;background:rgba(192,57,43,0.06);display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E74C3C;margin-bottom:10px;">Free Trial — No Credit Card</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,30px);color:#fff;line-height:1.2;margin-bottom:6px;">Your free trial is a live guided demo<br><em style="color:#E74C3C;">built around your organization.</em></div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:520px;line-height:1.6;">Not a generic walkthrough — you'll see your event types, your org name, and your community flow in action. 30 minutes. No obligation. We'll even send you the demo link afterward so your team can explore it on their own time.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);max-width:520px;line-height:1.6;margin-top:10px;font-style:italic;">Your guided demo features a live instance built for a real organization. You'll see exactly what the platform looks like in production — and exactly how it would be customized for you.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);"><i class="ti ti-check" style="color:#E74C3C;font-size:16px;"></i> See it live in 30 minutes</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);"><i class="ti ti-check" style="color:#E74C3C;font-size:16px;"></i> Personalized to your org type</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);"><i class="ti ti-check" style="color:#E74C3C;font-size:16px;"></i> Demo link sent after the call</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);"><i class="ti ti-check" style="color:#E74C3C;font-size:16px;"></i> No software to install</div>
+        <a href="https://calendly.com/carlisdesign/30min" target="_blank" style="margin-top:8px;padding:14px 28px;background:#C0392B;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;box-shadow:0 4px 20px rgba(192,57,43,0.3);font-family:'DM Sans',sans-serif;">
+          <i class="ti ti-player-play"></i> Start free trial
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING ── -->
+<div style="background:#111111;">
+  <div class="pricing-section">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title" style="margin-bottom:6px;">Simple, transparent<br><em>pricing for any size.</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-bottom:0;">Setup fee covers domain, hosting, and SSL certificate. No long-term contract required.</p>
+
+    <div class="pricing-grid">
+
+      <!-- A -->
+      <div class="price-card">
+        <div class="price-hdr">
+          <div class="price-option">Option A · Starter</div>
+          <div class="price-build">$3,500 <small>build</small></div>
+          <div class="price-mo">$250 setup fee · $249/mo</div>
+        </div>
+        <div class="price-body">
+          <div class="price-feat"><i class="ti ti-check"></i>Full platform build</div>
+          <div class="price-feat"><i class="ti ti-check"></i>All 10 features included</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Magic link login</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Mailchimp &amp; Constant Contact integration</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Email support · 2 business days</div>
+          <div class="price-feat dim"><i class="ti ti-minus off"></i>Custom feature requests</div>
+          <div class="price-note">Best for: smaller orgs running a single annual campaign or event series.</div>
+        </div>
+      </div>
+
+      <!-- B RECOMMENDED -->
+      <div class="price-card rec">
+        <div class="rec-tag">★ Most popular</div>
+        <div class="price-hdr">
+          <div class="price-option">Option B · Growth</div>
+          <div class="price-build">$5,000 <small>build</small></div>
+          <div class="price-mo">$500 setup fee · $349/mo</div>
+        </div>
+        <div class="price-body">
+          <div class="price-feat"><i class="ti ti-check"></i>Full platform build</div>
+          <div class="price-feat"><i class="ti ti-check"></i>All 10 features included</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Magic link login</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Mailchimp &amp; Constant Contact integration</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Priority support · same-day urgent response · WhatsApp access</div>
+          <div class="price-feat"><i class="ti ti-check"></i>2 custom features/year</div>
+          <div class="price-note">Best for: growing organizations running multiple event types year-round.</div>
+        </div>
+      </div>
+
+      <!-- C -->
+      <div class="price-card">
+        <div class="price-hdr">
+          <div class="price-option">Option C · Full Service</div>
+          <div class="price-build">$7,500 <small>build</small></div>
+          <div class="price-mo">$500 setup fee · $499/mo</div>
+        </div>
+        <div class="price-body">
+          <div class="price-feat"><i class="ti ti-check"></i>Full platform build</div>
+          <div class="price-feat"><i class="ti ti-check"></i>All 10 features included</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Magic link login</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Mailchimp &amp; Constant Contact integration</div>
+          <div class="price-feat"><i class="ti ti-check"></i>24/7 priority support · 1-hour live event response · phone + WhatsApp</div>
+          <div class="price-feat"><i class="ti ti-check"></i>Unlimited custom features</div>
+          <div class="price-note">Best for: large organizations or agencies managing multiple community programs.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <h2 class="cta-title">Try it free.<br><em>No credit card.</em></h2>
+  <p class="cta-sub">Your free trial is a guided 30-minute demo built around your organization — your event types, your community, your brand. You'll see exactly what it looks like with your name on it before you spend a dollar.</p>
+  <div class="hero-ctas" style="opacity:1;animation:none;">
+    <a href="https://calendly.com/carlisdesign/30min" target="_blank" class="btn-primary">
+      <i class="ti ti-player-play"></i> Start your free trial
+    </a>
+    <a href="mailto:info@carlisdesignstudio.net" class="btn-outline">
+      <i class="ti ti-mail"></i> Send us a message
+    </a>
+  </div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;letter-spacing:0.3px;">No obligation. No software to install. Just 30 minutes and a clear picture of what's possible.</p>
+
+  <div class="contact-row">
+    <!-- QR code generated via Google Charts API — points to Calendly -->
+    <div class="qr-box">
+      <img src="data:image/png;base64,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" width="140" height="140" alt="Scan to book a call" style="border-radius:6px;"/>
+      <div class="qr-label">Scan to start free trial</div>
+    </div>
+    <div class="contact-info">
+      <div class="contact-name">Carlis Design Studio LLC</div>
+      <div class="contact-studio">Community platform design &amp; development</div>
+      <a href="https://calendly.com/carlisdesign/30min" target="_blank" class="contact-link">
+        <i class="ti ti-calendar"></i> calendly.com/carlisdesign/30min
+      </a>
+      <a href="mailto:info@carlisdesignstudio.net" class="contact-link">
+        <i class="ti ti-mail"></i> info@carlisdesignstudio.net
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <div class="footer-logo">Amni <span>Circle</span></div>
+  <div class="footer-tagline">Arabic &amp; Swahili for peace, safety &amp; community · Activating Movements through Nonviolence &amp; Inclusion · Carlis Design Studio LLC</div>
+</div>
+
+</body>
+</html>
