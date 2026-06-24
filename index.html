@@ -17,27 +17,39 @@
 body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-height:100vh;overflow-x:hidden;}
   /* ── WHAT IS IT — video left, text right ── */
 /* ── WHAT IS IT — video left (large), text right ── */
+/* ── WHAT IS IT — video left (large), text right ── */
+.intro-wrap{
+  max-width:1560px;        /* breaks out past your container so the video can grow */
+  margin:0 auto;
+  padding:0 48px;
+}
 .intro-grid{
   display:grid;
-  grid-template-columns:1.6fr 1fr;   /* video column much wider than text */
-  gap:48px;
+  grid-template-columns:1.85fr 1fr;   /* video gets the lion's share */
+  gap:56px;
   align-items:center;
-  max-width:1320px;                  /* let this row run wider than the 1100 cap */
-  margin:0 auto;
 }
 .intro-video{
   position:relative;
-  padding-top:56.25%;            /* locks a clean 16:9 frame */
+  padding-top:56.25%;
   border-radius:14px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.08);
   box-shadow:0 16px 48px rgba(0,0,0,0.45);
 }
-.intro-video iframe{
-  position:absolute;inset:0;width:100%;height:100%;border:0;
+.intro-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+/* tame the headline so it doesn't dwarf the video */
+.intro-copy .section-title{
+  font-size:clamp(26px,2.4vw,38px);
+  line-height:1.14;
 }
+.intro-copy .section-body{max-width:none;}
+
 @media(max-width:820px){
   .intro-grid{grid-template-columns:1fr;gap:32px;}
+  .intro-wrap{padding:0 24px;}
+  .intro-copy .section-title{font-size:clamp(28px,6vw,40px);}
 }
 
 /* ── HERO ── */
@@ -264,11 +276,12 @@ body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-
 </div>
 
 <!-- ── WHAT IS IT ── -->
+<!-- ── WHAT IS IT ── -->
 <div style="background:#111111;padding:80px 0 0;">
-  <div class="section">
+  <div class="intro-wrap">
     <div class="intro-grid">
 
-      <!-- VIDEO (left — where the text used to be) -->
+      <!-- VIDEO (left — large) -->
       <div class="intro-video">
         <iframe
           src="https://player.vimeo.com/video/1203934247?title=0&byline=0&portrait=0"
@@ -288,7 +301,6 @@ body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-
     </div>
   </div>
 </div>
-
 <!-- ── ORG TYPES ── -->
 <div style="background:#111111;">
   <div class="orgs-section">
