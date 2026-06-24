@@ -15,6 +15,27 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-height:100vh;overflow-x:hidden;}
+  /* ── WHAT IS IT — video left, text right ── */
+.intro-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+.intro-video{
+  position:relative;
+  padding-top:56.25%;            /* locks a clean 16:9 frame */
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 16px 48px rgba(0,0,0,0.45);
+}
+.intro-video iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+@media(max-width:820px){
+  .intro-grid{grid-template-columns:1fr;gap:32px;}
+}
 
 /* ── HERO ── */
 .hero{
@@ -242,9 +263,26 @@ body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-
 <!-- ── WHAT IS IT ── -->
 <div style="background:#111111;padding:80px 0 0;">
   <div class="section">
-    <div class="section-eyebrow">What is Amni Circle?</div>
-    <h2 class="section-title">A complete community<br><em>event platform</em> — your brand,<br>your community, your data.</h2>
-    <p class="section-body">Amni Circle gives your organization a branded home for every event you run — in-person, virtual, or hybrid. Participants register with one click, receive automated multilingual reminders, and you get real-time attendance data. No spreadsheets. No Gmail threads. No manual sorting.</p>
+    <div class="intro-grid">
+
+      <!-- VIDEO (left — where the text used to be) -->
+      <div class="intro-video">
+        <iframe
+          src="https://player.vimeo.com/video/1203934247?title=0&byline=0&portrait=0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          title="Amni Circle promo"></iframe>
+      </div>
+
+      <!-- TEXT (right) -->
+      <div class="intro-copy">
+        <div class="section-eyebrow">What is Amni Circle?</div>
+        <h2 class="section-title">A complete community <em>event platform</em> — your brand, your community, your data.</h2>
+        <p class="section-body">Amni Circle gives your organization a branded home for every event you run — in-person, virtual, or hybrid. Participants register with one click, receive automated multilingual reminders, and you get real-time attendance data. No spreadsheets. No Gmail threads. No manual sorting.</p>
+      </div>
+
+    </div>
   </div>
 </div>
 
