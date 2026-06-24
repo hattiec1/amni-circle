@@ -16,11 +16,14 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-height:100vh;overflow-x:hidden;}
   /* ── WHAT IS IT — video left, text right ── */
+/* ── WHAT IS IT — video left (large), text right ── */
 .intro-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1.6fr 1fr;   /* video column much wider than text */
   gap:48px;
   align-items:center;
+  max-width:1320px;                  /* let this row run wider than the 1100 cap */
+  margin:0 auto;
 }
 .intro-video{
   position:relative;
