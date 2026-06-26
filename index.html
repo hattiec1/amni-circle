@@ -4,7 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Amni Circle — For Your Organization</title>
-  <meta property="og:title" content="Amni Circle — Your Community Platform"/>
+
+<!-- Social share preview (Open Graph + Twitter) -->
+<meta property="og:title" content="Amni Circle — Your Community Platform"/>
 <meta property="og:description" content="A complete community event platform — your brand, your community, your data. Book a free 30-minute guided demo built around your organization."/>
 <meta property="og:image" content="https://amni.carlisdesignstudio.net/assets/og-image.png"/>
 <meta property="og:url" content="https://amni.carlisdesignstudio.net/"/>
@@ -13,12 +15,15 @@
 <meta name="twitter:title" content="Amni Circle — Your Community Platform"/>
 <meta name="twitter:description" content="A branded home for every event you run. Book a free 30-minute guided demo."/>
 <meta name="twitter:image" content="https://amni.carlisdesignstudio.net/assets/og-image.png"/>
+
+<!-- Wistia player -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/r3lw5j852c.js" async type="module"></script>
+<style>wistia-player[media-id='r3lw5j852c']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/r3lw5j852c/swatch'); display: block; filter: blur(5px); padding-top:56.67%; }</style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
-  <script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/r3lw5j852c.js" async type="module"></script>
-<style>wistia-player[media-id='r3lw5j852c']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/r3lw5j852c/swatch'); display: block; filter: blur(5px); padding-top:56.67%; }</style>
 <style>
 :root{
   --p:#C0392B;--pm:#E74C3C;--pl:#FDDBD8;--pp:#FFF5F5;
@@ -123,10 +128,19 @@ body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-
   gap:72px;
   align-items:center;
 }
-<!-- VIDEO (left) -->
-<div class="intro-video">
-  <wistia-player media-id="r3lw5j852c" aspect="1.7647058823529411"></wistia-player>
-</div>
+.intro-video{
+  border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 16px 48px rgba(0,0,0,0.45);
+}
+.intro-video wistia-player{display:block;width:100%;border-radius:14px;}
+.intro-copy .section-title{font-size:clamp(26px,2.4vw,38px);line-height:1.14;}
+.intro-copy .section-body{max-width:none;}
+.intro-copy .btn-primary{margin-top:28px;}
+@media(max-width:820px){
+  .intro-wrap{padding:0 24px;}
+  .intro-grid{grid-template-columns:1fr;gap:32px;}
+  .intro-copy .section-title{font-size:clamp(28px,6vw,40px);}
 }
 
 /* ── ORG TYPES ── */
@@ -266,16 +280,14 @@ body{font-family:'DM Sans',sans-serif;background:#111111;color:var(--white);min-
 </div>
 
 <!-- ── WHAT IS IT ── -->
-<!-- ── WHAT IS IT ── -->
 <div style="background:#111111;padding:80px 0 80px;">
   <div class="intro-wrap">
     <div class="intro-grid">
 
       <!-- VIDEO (left) -->
-     <!-- VIDEO (left) -->
-<div class="intro-video">
-  <wistia-player media-id="r3lw5j852c" aspect="1.7647058823529411"></wistia-player>
-</div>
+      <div class="intro-video">
+        <wistia-player media-id="r3lw5j852c" aspect="1.7647058823529411"></wistia-player>
+      </div>
 
       <!-- TEXT + BUTTON (right) -->
       <div class="intro-copy">
