@@ -97,14 +97,14 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
 /* ── WHAT IS IT ── */
-.section{padding:80px 48px;max-width:1100px;margin:0 auto;}
+.section{padding:80px 48px;max-width:1400px;margin:0 auto;}
 .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--pm);margin-bottom:14px;}
 .section-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,48px);line-height:1.15;margin-bottom:16px;color:#fff;}
 .section-title em{font-style:italic;color:#0C9994;}
-.section-body{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:680px;}
+.section-body{font-size:19px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:none;}
 
 /* ── ORG TYPES ── */
-.orgs-section{padding:0 48px 80px;max-width:1100px;margin:0 auto;}
+.orgs-section{padding:0 48px 80px;max-width:1400px;margin:0 auto;}
 .orgs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:40px;}
 .org-card{
   background:rgba(255,255,255,0.04);
@@ -122,7 +122,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 .org-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:22px;}
 .org-type{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;opacity:0.6;}
 .org-name{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:10px;line-height:1.2;}
-.org-desc{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.org-desc{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.65;}
 .org-examples{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
 .org-tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.5);}
 
@@ -131,7 +131,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
   background:linear-gradient(180deg,transparent,rgba(0,105,120,0.12),transparent);
   padding:80px 48px;
 }
-.features-inner{max-width:1100px;margin:0 auto;}
+.features-inner{max-width:1400px;margin:0 auto;}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:40px;}
 .feat-item{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.06);}
 .feat-icon{width:40px;height:40px;border-radius:10px;background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#0C9994;}
@@ -139,7 +139,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 .feat-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
 
 /* ── PRICING ── */
-.pricing-section{padding:80px 48px;max-width:1100px;margin:0 auto;}
+.pricing-section{padding:80px 48px;max-width:1400px;margin:0 auto;}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
 .price-card{
   border-radius:16px;overflow:hidden;
@@ -243,22 +243,30 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 <!-- ── WHAT IS IT ── -->
 <div style="background:#002D3C;padding:80px 0 0;">
   <div class="section">
-    <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:center;">
 
-      <!-- Video left — 55% width -->
-      <div style="flex:0 0 55%;min-width:280px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+    <!-- Top row: video left, two text columns right -->
+    <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;">
+
+      <!-- Video — 65% -->
+      <div style="flex:0 0 65%;min-width:280px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.4);">
         <script src="https://fast.wistia.com/player.js" async></script>
         <script src="https://fast.wistia.com/embed/r3lw5j852c.js" async type="module"></script>
         <style>wistia-player[media-id='r3lw5j852c']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/r3lw5j852c/swatch');display:block;filter:blur(5px);padding-top:56.67%;}</style>
         <wistia-player media-id="r3lw5j852c" aspect="1.7647058823529411"></wistia-player>
       </div>
 
-      <!-- Description right — 40% width -->
-      <div style="flex:0 0 40%;min-width:240px;">
+      <!-- Text right — 30% -->
+      <div style="flex:0 0 30%;min-width:200px;">
         <div class="section-eyebrow">What is Amni Circle?</div>
-        <h2 class="section-title">A complete community<br><em>event platform</em> —<br>your brand, your data.</h2>
-        <p class="section-body">Amni Circle gives your organization a branded home for every event you run — in-person, virtual, or hybrid. Participants register with one click, receive automated multilingual reminders, and you get real-time attendance data. No spreadsheets. No Gmail threads. No manual sorting.</p>
-        <a href="https://calendly.com/carlisdesign/30min" target="_blank" style="margin-top:20px;padding:14px 28px;background:#006978;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;box-shadow:0 4px 20px rgba(0,105,120,0.3);">
+        <h2 class="section-title" style="font-size:clamp(28px,2.8vw,40px);margin-bottom:20px;">A complete community<br><em>event platform</em> —<br>your brand, your data.</h2>
+
+        <!-- Two side-by-side paragraphs -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+          <p class="section-body" style="margin:0;">Amni Circle gives your organization a branded home for every event you run — in-person, virtual, or hybrid.</p>
+          <p class="section-body" style="margin:0;">Participants register with one click, receive automated multilingual reminders, and you get real-time attendance data. No spreadsheets. No Gmail threads.</p>
+        </div>
+
+        <a href="https://calendly.com/carlisdesign/30min" target="_blank" style="padding:14px 28px;background:#006978;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;box-shadow:0 4px 20px rgba(0,105,120,0.3);">
           <i class="ti ti-player-play"></i> Start your free trial
         </a>
       </div>
@@ -380,7 +388,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 
 <!-- ── FREE TRIAL STRIP ── -->
 <div style="background:#002D3C;padding:0 48px 64px;">
-  <div style="max-width:1100px;margin:0 auto;">
+  <div style="max-width:1400px;margin:0 auto;">
     <div style="border:1px solid rgba(12,153,148,0.3);border-radius:16px;padding:36px 40px;background:rgba(0,105,120,0.1);display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0C9994;margin-bottom:10px;">Free Trial — No Credit Card</div>
