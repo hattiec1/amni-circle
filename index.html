@@ -19,7 +19,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 /* ── HERO ── */
 .hero{
   min-height:100vh;
-  background:linear-gradient(135deg,#002D3C 0%,#003C4B 40%,#004B69 100%);
+  background:linear-gradient(135deg,#002D3C 0%,#004B69 50%,#006978 100%);
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:80px 48px 60px;text-align:center;
@@ -32,8 +32,8 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
 }
 /* floating orbs */
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0.2;}
-.orb1{width:500px;height:500px;background:#006978;top:-200px;left:-150px;animation:drift1 18s ease-in-out infinite;}
-.orb2{width:350px;height:350px;background:#004B69;bottom:-100px;right:-80px;animation:drift2 22s ease-in-out infinite;}
+.orb1{width:500px;height:500px;background:#0C9994;top:-200px;left:-150px;animation:drift1 18s ease-in-out infinite;}
+.orb2{width:350px;height:350px;background:#006978;bottom:-100px;right:-80px;animation:drift2 22s ease-in-out infinite;}
 .orb3{width:250px;height:250px;background:#0C9994;top:40%;left:60%;animation:drift3 15s ease-in-out infinite;}
 @keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,30px);}}
 @keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,-20px);}}
@@ -219,7 +219,7 @@ body{font-family:'DM Sans',sans-serif;background:#002D3C;color:var(--white);min-
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
 
-  <img src="Amni_Circle_Logo.png" alt="Amni Circle" style="width:90px;height:90px;object-fit:contain;margin-bottom:20px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;filter:drop-shadow(0 4px 12px rgba(12,153,148,0.4));">
+  <img src="Amni_Circle_Logo.png" alt="Amni Circle" style="width:130px;height:130px;object-fit:contain;margin-bottom:20px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.4)) brightness(1.15);background:rgba(255,255,255,0.12);border-radius:50%;padding:8px;">
   <div class="hero-eyebrow">Amni Circle · Community Platform</div>
   <h1 class="hero-title">Your community.<br><em>One platform.</em></h1>
   <p class="hero-subtitle">Events, registrations, reminders, timezone support, and participant data — built for any organization that brings people together.</p>
